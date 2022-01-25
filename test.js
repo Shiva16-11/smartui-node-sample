@@ -8,7 +8,6 @@ const USERNAME = process.env.LT_USERNAME || "username";
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
 const KEY = process.env.LT_ACCESS_KEY || "accessKey";
-
 // gridUrl: gridUrl can be found at automation dashboard
 //const GRID_HOST = process.env.GRID_HOST || "@hub.sushobhit.dev.lambdatest.io/wd/hub";    //dev
 const GRID_HOST =

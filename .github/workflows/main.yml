@@ -8,9 +8,6 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-      - name: Percy Test
-        uses: percy/exec-action@master
-        with:
-          command: "node snapshots.js"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: LT Test
+        run: node test.js
+     

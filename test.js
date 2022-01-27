@@ -8,6 +8,7 @@ const USERNAME = process.env.LT_USERNAME || "shivanshus";
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
 const KEY = process.env.LT_ACCESS_KEY || "rrXOANiTOr7dLlD2s8BC9Gc21ofmUMe6sv5RmtrxHHvvLwf1yx";
+
 // gridUrl: gridUrl can be found at automation dashboard
 //const GRID_HOST = process.env.GRID_HOST || "@hub.sushobhit.dev.lambdatest.io/wd/hub";    //dev
 const GRID_HOST =
@@ -33,7 +34,7 @@ async function searchTextOnGoogle() {
     "accessKey": KEY,
     name: "test session", // name of the test
     build: platform + browserName + version, // name of the build
-    "smartUI.project": "dash",
+    "smartUI.project": "test",
     // will generate random smartUI build if not specified
     // "smartUI.build": "first", 
     "smartUI.options": {

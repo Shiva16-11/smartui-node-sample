@@ -12,5 +12,4 @@ jobs:
         uses: percy/exec-action@master
         with:
           command: "node test.js"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+     

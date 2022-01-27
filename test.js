@@ -4,10 +4,10 @@ var moment = require("moment");
 var waitTime = 2 // 2 seconds
 
 // username: Username can be found at automation dashboard
-const USERNAME = process.env.LT_USERNAME || "username";
+const USERNAME = process.env.LT_USERNAME || "shivanshus";
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
-const KEY = process.env.LT_ACCESS_KEY || "accessKey";
+const KEY = process.env.LT_ACCESS_KEY || "rrXOANiTOr7dLlD2s8BC9Gc21ofmUMe6sv5RmtrxHHvvLwf1yx";
 // gridUrl: gridUrl can be found at automation dashboard
 //const GRID_HOST = process.env.GRID_HOST || "@hub.sushobhit.dev.lambdatest.io/wd/hub";    //dev
 const GRID_HOST =

@@ -1,14 +1,17 @@
-name: LT-VT CI
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Install
-        run: npm install
-      - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v2
+name: "build-test"
+on: [push]
 
-       
+jobs:
+  test_something:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+      id: test
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Test XYZ
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}

@@ -10,4 +10,8 @@ jobs:
         run: npm install
       - name: LT Test
         run: node test.js
+      - name: LT-V
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check
+        env: GITHUB_TOKEN:${{ secrets.GITHUB_TOKEN }}
+
      

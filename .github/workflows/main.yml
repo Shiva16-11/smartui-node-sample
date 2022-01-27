@@ -11,7 +11,7 @@ jobs:
       - name: LT Test
         run: node test.js
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v1
         env: GITHUB_TOKEN:${{ secrets.GITHUB_TOKEN }}
 
      

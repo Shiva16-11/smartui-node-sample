@@ -1,26 +1,18 @@
-name: LT-VT CI
-on: [push, pull_request]
-env:
-  DAY_OF_WEEK: Monday
+name: "build-test"
+on: [push]
 
 jobs:
-  greeting_job:
+  test_something:
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
     steps:
-      - name: "Say Hello Mona it's Monday"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: ${{ secrets.LT_USERNAME }}
-
-  build:
-    runs-on: windows-2019
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Install
-        run: npm install
-      - name: LT Test
-        run: node test.js
-     
+    - uses: actions/checkout@v1
+    - uses: actions/create-outputs@v0.0.0-fake
+      id: test
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Test XYZ
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}

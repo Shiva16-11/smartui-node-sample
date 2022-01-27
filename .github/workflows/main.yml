@@ -8,8 +8,7 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-      - name: LT Test
-        run: node test.js
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v1
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v2
+
        

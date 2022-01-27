@@ -4,7 +4,7 @@ var moment = require("moment");
 var waitTime = 2 // 2 seconds
 const github = require('@actions/github');
 
-let payload = github.context.payload;
+let payload = github.context;
 console.log("payload of the event", payload);
 
 // username: Username can be found at automation dashboard

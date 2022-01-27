@@ -2,6 +2,10 @@ const webdriver = require("selenium-webdriver");
 const By = webdriver.By;
 var moment = require("moment");
 var waitTime = 2 // 2 seconds
+const github = require('@actions/github');
+
+let payload = github.context.payload;
+console.log("payload of the event", payload);
 
 // username: Username can be found at automation dashboard
 const USERNAME = process.env.LT_USERNAME || "shivanshus";

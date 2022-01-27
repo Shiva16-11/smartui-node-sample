@@ -9,7 +9,5 @@ jobs:
       - name: Install
         run: npm install
       - name: LT Test
-        uses: percy/exec-action@master
-        with:
-          command: "node test.js"
+        run: node test.js
      

@@ -9,5 +9,6 @@ jobs:
       - name: Install
         run: npm install
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v3
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v4
+
 

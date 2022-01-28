@@ -9,7 +9,7 @@ jobs:
       - name: Install
         run: npm install
       - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v6
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v7
         env:
           APP_ID: ${{ secrets.APP_ID }}
           INSTALL_ID: ${{ secrets.INSTALL_ID }}

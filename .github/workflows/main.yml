@@ -1,20 +1,28 @@
 
 name: LT-VT CI
-on: [repository_dispatch]
+on: push
     #types: [on-demand-test]
 
 jobs:
-  test_something:
+  createCheckRun:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/create-outputs@v0.0.0-fake
-      id: test
-    - uses: LouisBrunner/checks-action@v1.1.1
-      if: always()
+    - uses: ./
+      id: installationToken
+      with: 
+        appId: ${{ secrets.APP_ID }}
+        installationId: ${{ secrets.INSTALL_ID }}
+        privateKey: ${{ secrets.PRIVATE_KEY }}
+    - uses: actions/github-script@master
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":${{ steps.test.outputs.summary }}}
+        github-token: ${{ steps.installationToken.outputs.token }}
+        script: |
+          await github.checks.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            name: "Installation Token Integration Test",
+            head_sha: "${{ github.event.pull_request.head.sha }}",
+            status: "completed",
+            conclusion: "success"
+          })

@@ -1,19 +1,13 @@
 name: Checkout repos
-on: push
+on: [pull_request]
 jobs:
-  checkout:
+  build:
     runs-on: ubuntu-latest
+     
     steps:
-    - uses: actions/checkout@v2
-
-    - uses: navikt/github-app-token-generator@v1
-      id: get-token
-      with:
-        private-key: ${{ secrets.PRIVATE_KEY }}
-        app-id: ${{ secrets.APP_ID }}
-
-    - name: Check out an other repo
-      uses: actions/checkout@v2
-      with:
-        repository: owner/repo
-        token: ${{ steps.get-token.outputs.token }}
+      - name: checkout
+      - uses: actions/checkout@v2        
+      - name: npm dependencies
+        run: npm install     
+      - name: Nodejs
+        run: node test.js  

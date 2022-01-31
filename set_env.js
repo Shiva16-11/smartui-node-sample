@@ -8,7 +8,6 @@ const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN
   });
 async function run() {
-
     
     const owner = github.context.repo.owner
     const repo = github.context.repo.repo

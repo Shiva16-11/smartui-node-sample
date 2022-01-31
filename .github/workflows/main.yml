@@ -1,13 +1,16 @@
-name: Checkout repos
-on: [pull_request]
+name: LT-VT CI
+on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-latest
-     
+    runs-on: windows-2019
     steps:
-      - name: checkout
-      - uses: actions/checkout@master      
-      - name: npm dependencies
-        run: npm install     
-      - name: Nodejs
-        run: node test.js  
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install
+        run: npm install
+      - name: LT-V
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v7
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          INSTALL_ID: ${{ secrets.INSTALL_ID }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}

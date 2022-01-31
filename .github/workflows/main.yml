@@ -1,28 +1,19 @@
-
-name: LT-VT CI
+name: Checkout repos
 on: push
-    #types: [on-demand-test]
-
 jobs:
-  createCheckRun:
+  checkout:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      id: installationToken
-      with: 
-        appId: ${{ secrets.APP_ID }}
-        installationId: ${{ secrets.INSTALL_ID }}
-        privateKey: ${{ secrets.PRIVATE_KEY }}
-    - uses: actions/github-script@master
+    - uses: actions/checkout@v2
+
+    - uses: navikt/github-app-token-generator@v1
+      id: get-token
       with:
-        github-token: ${{ steps.installationToken.outputs.token }}
-        script: |
-          await github.checks.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            name: "Installation Token Integration Test",
-            head_sha: "${{ github.event.pull_request.head.sha }}",
-            status: "completed",
-            conclusion: "success"
-          })
+        private-key: ${{ secrets.PRIVATE_KEY }}
+        app-id: ${{ secrets.APP_ID }}
+
+    - name: Check out an other repo
+      uses: actions/checkout@v2
+      with:
+        repository: owner/repo
+        token: ${{ steps.get-token.outputs.token }}

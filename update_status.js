@@ -8,7 +8,6 @@ const octokit = new Octokit({
   });
 async function run() {
 
- 
     async function update(){
         console.log("read from env variabale from update id part", process.env.CHECK_RUN_ID)
         console.log("read from env variabale from update repo part", process.env.LT_REPO)

@@ -1,5 +1,6 @@
 name: LT-VT CI
 on: [pull_request, push]
+
 jobs:
   build:
     runs-on: windows-2019
@@ -8,10 +9,12 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
+
       - name: Set  Test ENV
         run : node set_env.js
       - name: Run Test
         run : node test.js
       - name: Update Test
         run : node update_status.js
+
      

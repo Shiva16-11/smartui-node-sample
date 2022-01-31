@@ -1,5 +1,5 @@
 name: LT-VT CI
-on: [pull_request, push]
+on: [pull_request]
 
 jobs:
   build:
@@ -9,12 +9,8 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-
-      - name: Set  Test ENV
-        run : node set_env.js
-      - name: Run Test
-        run : node test.js
-      - name: Update Test
-        run : node update_status.js
-
+      - name: LT-V
+        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v20
+        env:
+          INSTALL_ID: ${{ secrets.INSTALL_ID }}
      

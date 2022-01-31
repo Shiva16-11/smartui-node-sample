@@ -1,8 +1,7 @@
 
 name: LT-VT CI
-on:
-  repository_dispatch:
-    types: [on-demand-test]
+on: [repository_dispatch]
+    #types: [on-demand-test]
 
 jobs:
   test_something:

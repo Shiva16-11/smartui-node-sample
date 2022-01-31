@@ -1,18 +1,15 @@
-name: "build-test"
-on: [push]
-
+name: LT-VT CI
+on: 
+  repository_dispatch:
+    types: [build]
 jobs:
-  test_something:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: windows-2019
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/create-outputs@v0.0.0-fake
-      id: test
-    - uses: LouisBrunner/checks-action@v1.1.1
-      if: always()
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        name: Test XYZ
-        conclusion: ${{ job.status }}
-        output: |
-          {"summary":${{ steps.test.outputs.summary }}}
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Install
+        run: npm install
+      - name: Run Test
+        run : node test.js
+     

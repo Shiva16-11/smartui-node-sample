@@ -1,5 +1,7 @@
 name: LT-VT CI
-on: [repository_dispatch]
+on: 
+  repository_dispatch:
+    types: [build]
 jobs:
   build:
     runs-on: windows-2019

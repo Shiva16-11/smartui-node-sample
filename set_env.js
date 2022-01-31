@@ -24,7 +24,7 @@ async function run() {
 
     console.log("read from env variabale", process.env.CHECK_RUN_ID)
     
-    process.env['BUILD_NAME']=`${id.data.id}||${owner}||${repo}||{process.env.INSTALL_ID}
+    process.env['BUILD_NAME']=`${id.data.id}||${owner}||${repo}||{process.env.INSTALL_ID}`
         
 }
 

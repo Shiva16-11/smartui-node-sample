@@ -2,7 +2,12 @@
   "dependencies": {
     "moment": "^2.29.1",
     "selenium-webdriver": "^3.6.0",
-    "@actions/github": "^1.1.0"
+
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.3",
+    "@actions/github": "^1.1.0",
+    "@actions/io": "^1.0.2"
+
   },
   "name": "nodejs-selenium-sample",
   "description": "![LambdaTest Logo](https://www.lambdatest.com/images/logo.svg)",

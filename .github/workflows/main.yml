@@ -1,15 +1,21 @@
+
 name: LT-VT CI
 on:
   repository_dispatch:
     types: [on-demand-test]
+
 jobs:
-  build:
-    runs-on: windows-2019
+  test_something:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Install
-        run: npm install
-      - name: LT Test
-        run: node test.js
-     
+    - uses: actions/checkout@v1
+    - uses: actions/create-outputs@v0.0.0-fake
+      id: test
+    - uses: LouisBrunner/checks-action@v1.1.1
+      if: always()
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: Test XYZ
+        conclusion: ${{ job.status }}
+        output: |
+          {"summary":${{ steps.test.outputs.summary }}}

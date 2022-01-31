@@ -1,4 +1,5 @@
 const fs = require('fs')
+console.log("file exists check");
 try {
   if (fs.existsSync("GITHUB_ENV")) {
     console.log("file exists");

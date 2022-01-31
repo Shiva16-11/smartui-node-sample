@@ -13,4 +13,5 @@ jobs:
         uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v20
         env:
           INSTALL_ID: ${{ secrets.INSTALL_ID }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      

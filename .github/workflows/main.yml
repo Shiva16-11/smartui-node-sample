@@ -1,5 +1,7 @@
 name: LT-VT CI
-on: [push, pull_request]
+on:
+  repository_dispatch:
+    types: [on-demand-test]
 jobs:
   build:
     runs-on: windows-2019

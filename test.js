@@ -1,3 +1,2 @@
-
-process.env['NODE_ENV'] = 'production';
-console.log(process.env.NODE_ENV);
+const github = require('@actions/github');
+console.log("created check run context", github.context);

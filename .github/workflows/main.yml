@@ -1,6 +1,7 @@
-name: LT-VT CI
-on: [pull_request]
-
+name: LT-VT CI- develop
+on: 
+  repository_dispatch:
+    types: [build]
 jobs:
   build:
     runs-on: windows-2019
@@ -9,9 +10,6 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-      - name: LT-V
-        uses: Shivanshu-lambdatest/Github-VT-Plugin@Review-Check-v20
-        env:
-          INSTALL_ID: ${{ secrets.INSTALL_ID }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run Test
+        run : node test.js
      
